@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# 安装docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
 # 添加阿里云镜像加速器
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
@@ -10,9 +14,6 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 
-# 安装docker
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
 
 # 安装docker-compose
 # sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
